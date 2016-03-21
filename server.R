@@ -1,8 +1,14 @@
 
-# This is the server logic for a Shiny web application.
-# You can find out more about building applications with Shiny here:
-# 
-# http://www.rstudio.com/shiny/
+# The Chocolate Bilby Safe Consumption Calculator
+#
+# Create by Damon Grummet
+# On the 21st Of March 2016
+# As an assignment response for Coursera/Johns Hopkins MOOC course 'Data Products' - a part
+# of the Data Science Specialization.
+#
+# This package ONLY requires the 'Shiny' library.
+#
+# SERVER COMPONENT
 #
 
 # 
@@ -52,19 +58,24 @@ shinyServer(function(input, output) {
     input$age*(87/17)
   })
   
-  output$hInRoos <- renderPrint({hInRoos()})
-  output$wInWombats <- renderText({wInWombats()})
-  output$aInPlatys <- renderPrint({aInPlatys()})
+  # The Basal Metabolic Rate (BMR) (expressed in 1000's of calories - kcal) is calculated using
+  BMR <- reactive ({10*weight() +6.25 * height()/100 - 5*input$age})
+  # usually, the gender of the person alters the result +5 male -161 female.  But let's not ask!
+  
+  # Calories in a chocolate Bilby (http://www.haighschocolates.com.au/about-us/the-bilby/):
+  # a 110g small milk chocolate bilby from Haighs Chocolates has 2508kJ (599,025.5calories) energy in it
+  # The user will need ~ BMR/600 of these sweets to maintain basic functions per day
+  
+  output$lazyMax <- renderText({paste("By the way, your Basal Metabolic Rate (BMR=",round(BMR(),2),
+                                      ") suggests you could eat ", round(BMR()/600,3), 
+                                      " Chocolate Bilbies before you need to move!")})
+  
+  output$hInRoos <- renderText({paste("You are as tall as ",round(hInRoos(),2)," kangaroos.")})
+  output$wInWombats <- renderText({paste("You weight as much as ",round(wInWombats(),2), "wombats.")})
+  output$aInPlatys <- renderText({paste("You are ",round(aInPlatys(),1), " platypus years of age.")})
     
   output$distPlot <- renderPlot({
     
-    # The Basal Metabolic Rate (BMR) (expressed in 1000's of calories - kcal) is calculated using
-    BMR <- 10*weight() +6.25 * height()/100 - 5*input$age
-    # usually, the gender of the person alters the result +5 male -161 female.  But let's not ask!
-    
-    # Calories in a chocolate Bilby (http://www.haighschocolates.com.au/about-us/the-bilby/):
-    # a 110g small milk chocolate bilby from Haighs Chocolates has 2508kJ (599,025.5calories) energy in it
-    # The user will need ~ BMR/600 of these sweets to maintain basic functions per day
     
     # draw a curve
     # x axis is amount of chocolate eaten, y axis is amount of exercise required to remain at weight
@@ -79,14 +90,14 @@ shinyServer(function(input, output) {
     
     # y = x - BMR/600 
     
-    curve(x*600-BMR,0,30,
+    curve(x*600-BMR(),0,30,
           xlab = "Qty of 110g Chocolate Bilby's",
           ylab = "Energy (kcal) to work off")
     
     # Place a vertical line on the graph showing how many bilby's can be eaten given the amount of
     # exercise
     mu <- input$situps * kcalPerSitup / 600
-    phi <- mu*600-BMR
+    phi <- mu*600-BMR()
     
     lines(c(mu,mu), c(0,phi), col="green", lwd=7)
     lines(c(0,mu), c(phi,phi), col="green", lwd=7)

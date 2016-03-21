@@ -1,0 +1,44 @@
+Chocolate Bilby Consumption Guide - An Easter Advisory Application
+========================================================
+author: Damon Grummet
+date: 21st March 2016
+
+Easter Trouble
+========================================================
+
+Easter is, for many, a dangerous holiday fraught with indecision 
+and guilt
+
+- Should I eat the huge basket of chocolates now or save them?
+- If I eat them now, will I suffer some horrible fate??
+- If I don't eat them now, will the family pet find them and get sick???
+
+Chocolate Bilbies
+========================================================
+
+It is also a time when Chocolate Bilbies are eaten in great 
+quantities
+
+```{r setup, include=FALSE}
+opts_chunk$set(out.width='750px', out.height='450px', dpi=280)
+```
+```{r, echo=FALSE}
+par(mar=c(5.1,5.1,4.1,2.1))
+curve(expr=((x-15)/25)^2+0.5, from=0, to= 120, main = "Chocolate Bilbies Eaten, by Age", xlab="Consumer Age", ylab="# Chocolate Bilbies consumed")
+```
+
+Introducing
+========================================================
+
+<large>The Chocolate Bilby Safe Consumption Calculator!</large>
+
+Using this revolutionary Mathematical Computation Application,
+you can determine how many Chocolate Bilbies you can safely consume!
+
+Simply enter your vital details, and Explore the Possibilities!
+
+![The Chocolate Bilby Safe Consumption Calculator](screenshot.JPG)
+
+Disclaimer
+========================================================
+<small>Warning, not to be considered an accurate gauge of healthy eating habits, or to be used for any purpose except entertainment.</small>
