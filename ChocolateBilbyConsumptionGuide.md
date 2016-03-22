@@ -22,18 +22,16 @@ quantities
 
 <img src="ChocolateBilbyConsumptionGuide-figure/unnamed-chunk-1-1.png" title="plot of chunk unnamed-chunk-1" alt="plot of chunk unnamed-chunk-1" width="750px" height="450px" />
 
-Introducing
+The Chocolate Bilby Safe Consumption Calculator!
 ========================================================
-
-<large>The Chocolate Bilby Safe Consumption Calculator!</large>
 
 Using this revolutionary Mathematical Computation Application,
 you can determine how many Chocolate Bilbies you can safely consume!
 
-Simply enter your vital details, and Explore the Possibilities!
-
 ![The Chocolate Bilby Safe Consumption Calculator](screenshot.JPG)
+
+Simply enter your vital details, and Explore the Possibilities!
 
 Disclaimer
 ========================================================
-<small>Warning, not to be considered an accurate gauge of healthy eating habits, or to be used for any purpose except entertainment.</small>
+<small>Warning, Not to be considered an accurate gauge of healthy eating habits, or to be used for any purpose except entertainment.</small>
